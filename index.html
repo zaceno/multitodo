@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module">
+            import {app, h} from 'https://unpkg.com/hyperapp'
+            import * as main from './main.js'
+            const model = main.wire()
+            app({
+                init: main.init(),
+                view: state => main.view(model(state)),
+                node: document.querySelector('main#app')
+            })
+        </script>
+    </head>
+    <body>
+        <p>This app is a live demo of the repo att <a href="https://github.com/zaceno/multitodo">https://github.com/zaceno/multitodo</a></p>
+        <main id="app"></main>
+    </body>
+</html>
