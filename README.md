@@ -4,6 +4,8 @@ Live demo here: https://zaceno.github.io/multitodo
 
 This is a basic todo-list app with multiple todo-lists (each list is called a project, each todo is called a task).
 
-The purpose is mainly to demonstrate modularization/componentization for reuse of repeating logic and encapsulation of logic. This example could be said to go a bit overboard, but it is after all just a demo.
+The purpose is mainly to demonstrate modularization/componentization for the purpose of reusing and encapsulating logic, in Hyperapp (which has no built in concept of stateful-components or similar)
+
+I might be overdoing it a bit, but it's all in the spirit of being a good demo.
 
 Inspired by: https://to-do-list-with-labels.netlify.app
