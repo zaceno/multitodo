@@ -4,7 +4,7 @@ import * as taskitem from './task.js'
 import style from './add-stylesheet.js'
 
 export const init = genericlist.init
-export const wire = accessors => genericlist.wire(taskitem, accessors)
+export const wire = accessors => genericlist.wire(taskitem, {...accessors, addFirst: true})
 export const view = ({items}) => html`
     <ul class="task-list">
         ${items.map(task => taskitem.view(task))}

@@ -5,7 +5,7 @@ import button from './button.js'
 
 const init = () => ''
 const wire = ({ get, set, onSubmit }) => {
-    const _submit = (state, id) => onSubmit(set(state, '', id), get(state, id), id)
+    const _submit = (state, id) => get(state, id) ? onSubmit(set(state, '', id), get(state, id), id) : state
     const Input = (state, { event, id }) => set(state, event.target.value, id)
     const Submit = (state, id) => _submit(state, id)
     const KeyPress = (state, { event, id }) =>

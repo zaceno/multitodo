@@ -3,9 +3,9 @@ const init = () => ({
     list: [],
     items: {},
 })
-const add = ({ n, list, items }, item, last = true, id = 'id-' + n) => ({
+const add = ({ n, list, items }, item, first = false, id = 'id-' + n) => ({
     n: n + 1,
-    list: last ? [...list, id] : [id, ...list],
+    list: first ? [id, ...list] : [...list, id],
     items: { ...items, [id]: item },
 })
 const remove = ({ n, list, items }, id) => {
@@ -25,14 +25,14 @@ const read = ({ items }, id) => items[id]
 
 const list = (state) => state.list
 
-const wire = (itemtype, { get, set }) => {
+const wire = (itemtype, { get, set, addFirst=false }) => {
     const item = itemtype.wire({
         get: (state, id) => read(get(state, id.list), id.item),
         set: (state, item, id) => set(state, write(get(state, id.list), id.item, item), id.list),
         onWantRemove: (state, id) => set(state, remove(get(state, id.list), id.item), id.list),
     })
     return {
-        add: (state, data, id) => set(state, add(get(state, id), itemtype.init(data)), id),
+        add: (state, data, id) => set(state, add(get(state, id), itemtype.init(data), addFirst), id),
         model: (state, id) => ({
             items: list(get(state, id)).map((itemid) => item(state, { list: id, item: itemid })),
         }),

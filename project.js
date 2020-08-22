@@ -9,7 +9,7 @@ import style from './add-stylesheet.js'
 
 export const init = (name) => ({
     name,
-    expanded: false,
+    expanded: true,
     tasks: tasklist.init(),
     entry: textentry.init(),
 })
