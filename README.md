@@ -1,6 +1,6 @@
 # multi-todo
 
-Live demo here: https://zaceno.github.io/multitodo
+Live demo here: http://zaceno.github.io/multitodo
 
 This is a basic todo-list app with multiple todo-lists (each list is called a project, each todo is called a task).
 
